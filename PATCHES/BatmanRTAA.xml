@@ -3,6 +3,48 @@
     <TitleID>
         <ID>CUSA04607</ID>
     </TitleID>
+
+    <Metadata Title="Batman: Return to Arkham - Arkham Asylum"
+              Name="Resolution 1920x1080 (Full HD)"
+              Note="Force 1920x1080 viewport resolution"
+              Author="smuurf.xyzz"
+              PatchVer="1.0"
+              AppVer="01.02"
+              AppElf="eboot.bin"
+              isEnabled="false">
+        <PatchList>
+            <Line Type="bytes" Address="0x0170E053"
+                  Value="B980070000BE380400000F1F4000"/>
+        </PatchList>
+    </Metadata>
+
+    <Metadata Title="Batman: Return to Arkham - Arkham Asylum"
+              Name="Resolution 2560x1440 (QHD / 2K)"
+              Note="Force 2560x1440 viewport resolution"
+              Author="smuurf.xyzz"
+              PatchVer="1.0"
+              AppVer="01.02"
+              AppElf="eboot.bin"
+              isEnabled="false">
+        <PatchList>
+            <Line Type="bytes" Address="0x0170E053"
+                  Value="B9000A0000BEA00500000F1F4000"/>
+        </PatchList>
+    </Metadata>
+
+    <Metadata Title="Batman: Return to Arkham - Arkham Asylum"
+              Name="Resolution 3840x2160 (4K UHD)"
+              Note="Force 3840x2160 viewport resolution"
+              Author="smuurf.xyzz"
+              PatchVer="1.0"
+              AppVer="01.02"
+              AppElf="eboot.bin"
+              isEnabled="false">
+        <PatchList>
+            <Line Type="bytes" Address="0x0170E053"
+                  Value="B9000F0000BE700800000F1F4000"/>
+        </PatchList>
+    </Metadata>
     
     <Metadata Title="Batman: Return to Arkham - Arkham Asylum" 
             Name="Unlock 60 FPS" 
