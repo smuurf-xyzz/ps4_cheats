@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<Patch>
+    <TitleID>
+        <ID>CUSA04607</ID>
+    </TitleID>
+    
+    <Metadata Title="Batman: Return to Arkham - Arkham Asylum" 
+            Name="Unlock 60 FPS" 
+            Note="Removes the hardcoded 30 FPS limit." 
+            Author="smuurf.xyzz" 
+            PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+        <PatchList>
+            <Line Type="bytes" Address="0x005CDC92" Value="00"/>
+            <Line Type="bytes" Address="0x019DC19A" Value="00007042"/>
+            <Line Type="bytes" Address="0x03A50012" Value="083D"/>
+        </PatchList>
+
+    <!-- Enable ONE of the following profiles at a time. -->
+    </Metadata>
+        <Metadata Title="Batman: Return to Arkham - Arkham Asylum"
+            Name="Anti-Aliasing: TAA (Maximum Quality)"
+            Note="Forces Temporal AA with maximum quality. Enable only ONE anti-aliasing profile at a time."
+            Author="smuurf.xyzz"
+            PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+        <PatchList>
+            <!-- r.PostProcessAAQuality default = 6 -->
+            <Line Type="bytes" Address="0x00631C16" Value="06000000" />
+            <!-- r.DefaultFeature.AntiAliasing default: 3 = TemporalAA -->
+            <Line Type="bytes" Address="0x018B6C24" Value="03000000" />
+            <!-- Force the two runtime PostProcessAAQuality reads to 6 -->
+            <Line Type="bytes" Address="0x010E814A" Value="6A0658" />
+            <Line Type="bytes" Address="0x0113E657" Value="6A0658" />
+            <!-- Force the AntiAliasingMethod store path -->
+            <Line Type="bytes" Address="0x0188A325" Value="EB31" />
+            <!-- EAntiAliasingMethod = 2 (AAM_TemporalAA) at all located writers -->
+            <Line Type="bytes" Address="0x01889C7E" Value="02" />
+            <Line Type="bytes" Address="0x0188A35F" Value="02" />
+            <Line Type="bytes" Address="0x0188A598" Value="02" />
+        </PatchList>
+    </Metadata>
+
+    <Metadata Title="Batman: Return to Arkham - Arkham Asylum"
+        Name="Anti-Aliasing: FXAA (Maximum Quality)"
+        Note="Forces FXAA at the highest available quality level. Enable only ONE anti-aliasing profile at a time."
+        Author="smuurf.xyzz"
+        PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+        <PatchList>
+            <!-- r.PostProcessAAQuality default = 2 (FXAA maximum for this build) -->
+            <Line Type="bytes" Address="0x00631C16" Value="02000000" />
+            <!-- r.DefaultFeature.AntiAliasing default: 1 = FXAA -->
+            <Line Type="bytes" Address="0x018B6C24" Value="01000000" />
+            <!-- Force the two runtime PostProcessAAQuality reads to 2 -->
+            <Line Type="bytes" Address="0x010E814A" Value="6A0258" />
+            <Line Type="bytes" Address="0x0113E657" Value="6A0258" />
+            <!-- Force the AntiAliasingMethod store path -->
+            <Line Type="bytes" Address="0x0188A325" Value="EB31" />
+            <!-- EAntiAliasingMethod = 1 (AAM_FXAA) at all located writers -->
+            <Line Type="bytes" Address="0x01889C7E" Value="01" />
+            <Line Type="bytes" Address="0x0188A35F" Value="01" />
+            <Line Type="bytes" Address="0x0188A598" Value="01" />
+        </PatchList>
+    </Metadata>
+
+    <Metadata Title="Batman: Return to Arkham - Arkham Asylum"
+            Name="Anti-Aliasing: SMAA (Maximum Quality)"
+            Note="Forces SMAA at its default supported level. Enable only ONE anti-aliasing profile at a time."
+            Author="smuurf.xyzz"
+            PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+        <PatchList>
+            <!-- r.PostProcessAAQuality default = 3 (SMAA) -->
+            <Line Type="bytes" Address="0x00631C16" Value="03000000" />
+            <!-- r.DefaultFeature.AntiAliasing default: 2 = SMAA -->
+            <Line Type="bytes" Address="0x018B6C24" Value="02000000" />
+            <!-- Force the two runtime PostProcessAAQuality reads to 3 -->
+            <Line Type="bytes" Address="0x010E814A" Value="6A0358" />
+            <Line Type="bytes" Address="0x0113E657" Value="6A0358" />
+            <!-- Force the AntiAliasingMethod store path -->
+            <Line Type="bytes" Address="0x0188A325" Value="EB31" />
+            <!-- EAntiAliasingMethod = 3 (AAM_SMAA) at all located writers -->
+            <Line Type="bytes" Address="0x01889C7E" Value="03" />
+            <Line Type="bytes" Address="0x0188A35F" Value="03" />
+            <Line Type="bytes" Address="0x0188A598" Value="03" />
+        </PatchList>
+    </Metadata>
+
+    <Metadata Title="Batman: Return to Arkham - Arkham Asylum"
+            Name="Anti-Aliasing: Off"
+            Note="Disables built-in anti-aliasing. Intended for external solutions like ReShade. Enable only ONE anti-aliasing profile at a time."
+            Author="smuurf.xyzz"
+            PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+        <PatchList>
+            <!-- r.PostProcessAAQuality default = 0 -->
+            <Line Type="bytes" Address="0x00631C16" Value="00000000" />
+            <!-- r.DefaultFeature.AntiAliasing default: 0 = Off -->
+            <Line Type="bytes" Address="0x018B6C24" Value="00000000" />
+            <!-- Force the two runtime PostProcessAAQuality reads to 0 -->
+            <Line Type="bytes" Address="0x010E814A" Value="6A0058" />
+            <Line Type="bytes" Address="0x0113E657" Value="6A0058" />
+            <!-- Force the AntiAliasingMethod store path -->
+            <Line Type="bytes" Address="0x0188A325" Value="EB31" />
+            <!-- EAntiAliasingMethod = 0 (AAM_None) at all located writers -->
+            <Line Type="bytes" Address="0x01889C7E" Value="00" />
+            <Line Type="bytes" Address="0x0188A35F" Value="00" />
+            <Line Type="bytes" Address="0x0188A598" Value="00" />
+        </PatchList>
+    </Metadata>
+</Patch>
