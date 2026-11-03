@@ -63,7 +63,7 @@
             Name="Anti-Aliasing: TAA (Maximum Quality)"
             Note="Forces Temporal AA with maximum quality. Enable only ONE anti-aliasing profile at a time."
             Author="smuurf.xyzz"
-            PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+            PatchVer="1.1" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
         <PatchList>
             <!-- r.PostProcessAAQuality default = 6 -->
             <Line Type="bytes" Address="0x00631C16" Value="06000000" />
@@ -74,10 +74,9 @@
             <Line Type="bytes" Address="0x0113E657" Value="6A0658" />
             <!-- Force the AntiAliasingMethod store path -->
             <Line Type="bytes" Address="0x0188A325" Value="EB31" />
-            <!-- EAntiAliasingMethod = 2 (AAM_TemporalAA) at all located writers -->
-            <Line Type="bytes" Address="0x01889C7E" Value="02" />
-            <Line Type="bytes" Address="0x0188A35F" Value="02" />
-            <Line Type="bytes" Address="0x0188A598" Value="02" />
+            <!-- EAntiAliasingMethod = 3 (AAM_TemporalAA) at all located writers -->
+            <Line Type="bytes" Address="0x0188A35F" Value="03" />
+            <Line Type="bytes" Address="0x0188A598" Value="03" />
         </PatchList>
     </Metadata>
 
@@ -85,7 +84,7 @@
         Name="Anti-Aliasing: FXAA (Maximum Quality)"
         Note="Forces FXAA at the highest available quality level. Enable only ONE anti-aliasing profile at a time."
         Author="smuurf.xyzz"
-        PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+        PatchVer="1.1" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
         <PatchList>
             <!-- r.PostProcessAAQuality default = 2 (FXAA maximum for this build) -->
             <Line Type="bytes" Address="0x00631C16" Value="02000000" />
@@ -97,7 +96,6 @@
             <!-- Force the AntiAliasingMethod store path -->
             <Line Type="bytes" Address="0x0188A325" Value="EB31" />
             <!-- EAntiAliasingMethod = 1 (AAM_FXAA) at all located writers -->
-            <Line Type="bytes" Address="0x01889C7E" Value="01" />
             <Line Type="bytes" Address="0x0188A35F" Value="01" />
             <Line Type="bytes" Address="0x0188A598" Value="01" />
         </PatchList>
@@ -107,7 +105,7 @@
             Name="Anti-Aliasing: SMAA (Maximum Quality)"
             Note="Forces SMAA at its default supported level. Enable only ONE anti-aliasing profile at a time."
             Author="smuurf.xyzz"
-            PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+            PatchVer="1.1" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
         <PatchList>
             <!-- r.PostProcessAAQuality default = 3 (SMAA) -->
             <Line Type="bytes" Address="0x00631C16" Value="03000000" />
@@ -118,10 +116,9 @@
             <Line Type="bytes" Address="0x0113E657" Value="6A0358" />
             <!-- Force the AntiAliasingMethod store path -->
             <Line Type="bytes" Address="0x0188A325" Value="EB31" />
-            <!-- EAntiAliasingMethod = 3 (AAM_SMAA) at all located writers -->
-            <Line Type="bytes" Address="0x01889C7E" Value="03" />
-            <Line Type="bytes" Address="0x0188A35F" Value="03" />
-            <Line Type="bytes" Address="0x0188A598" Value="03" />
+            <!-- EAntiAliasingMethod = 2 (AAM_SMAA) at all located writers -->
+            <Line Type="bytes" Address="0x0188A35F" Value="02" />
+            <Line Type="bytes" Address="0x0188A598" Value="02" />
         </PatchList>
     </Metadata>
 
@@ -151,9 +148,10 @@
             Name="Disable Ambient Occlusion"
             Note="Disables built-in ambient occlusion effect. Intended for external solutions like ReShade."
             Author="smuurf.xyzz"
-            PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+            PatchVer="1.1" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
         <PatchList>
-            <Line Type="bytes" Address="0x00631B22" Value="00000000"/>
+            <Line Type="bytes" Address="0x00631AE6" Value="00000000"/>
+            <Line Type="bytes" Address="0x010CA82A" Value="31C9"/>
         </PatchList>
     </Metadata>
 
@@ -161,9 +159,10 @@
             Name="Disable Depth of Field"
             Note="Disables built-in depth of field effect. Intended for external solutions like ReShade."
             Author="smuurf.xyzz"
-            PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+            PatchVer="1.1" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
         <PatchList>
-            <Line Type="bytes" Address="0x010E3DC3" Value="EB5E"/>
+            <Line Type="bytes" Address="0x01889D98" Value="9090"/>
+            <Line Type="bytes" Address="0x010E3DC3" Value="EB"/>
         </PatchList>
     </Metadata>
 
@@ -174,6 +173,26 @@
             PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
         <PatchList>
             <Line Type="bytes" Address="0x00631BDA" Value="00000000"/>
+        </PatchList>
+    </Metadata>
+
+    <Metadata Title="Batman: Return to Arkham - Arkham Asylum"
+            Name="Disable Bloom"
+            Note="Disables built-in bloom effect. Intended for external solutions like ReShade."
+            Author="smuurf.xyzz"
+            PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+        <PatchList>
+            <Line Type="bytes" Address="0x01889CF0" Value="9090"/>
+        </PatchList>
+    </Metadata>
+
+    <Metadata Title="Batman: Return to Arkham - Arkham Asylum"
+            Name="Disable Startup Movies"
+            Note="Disables built-in startup movies."
+            Author="smuurf.xyzz"
+            PatchVer="1.0" AppVer="01.02" AppElf="eboot.bin" isEnabled="false">
+        <PatchList>
+            <Line Type="bytes" Address="0x015AB7DA" Value="E90902000090"/>
         </PatchList>
     </Metadata>
 </Patch>
